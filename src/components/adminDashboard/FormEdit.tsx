@@ -33,7 +33,8 @@ function FormEdit({id, name, description, price, thumbnail, brandId}:Props) {
             return alert('Shoe update')
         } catch (error) {
             console.log(error)
-            return
+            alert('Error update')
+            return setIsSending(false)
         }
     }
 

@@ -10,7 +10,6 @@ function TableAdmin() {
     const [data, setData] = useState<any>([])
     const [errorFetch, setErrorFetch] = useState(false)
 
-    
     // AGREGAR EVENT PREV Y NEXT AL ESTADO
     const [prev, setPrev] = useState(0)
     const [next, setNext] = useState(5)
@@ -33,7 +32,7 @@ function TableAdmin() {
             // console.log(shoes.data.payload.data)
             const allShoes = shoes.data.payload.data
 
-            allShoes && setData(allShoes.slice(prev, next))
+            allShoes && setData(allShoes)
             setIsLoading(false)
         } catch (error) {
             return <p>Error en cargar datos</p>
@@ -45,7 +44,8 @@ function TableAdmin() {
 
     useEffect(() => {
         fetchShoes()
-    }, [prev, next, isLoading])
+    }, [isLoading])
+    
 
   return (
     <>
@@ -68,7 +68,7 @@ function TableAdmin() {
             ?
             <p>...loading</p>
             :
-            data.map((s:any)=> ( 
+            data.slice(prev, next).map((s:any)=> ( 
                 <TableCard 
                     key={s.id} 
                     id={s.id} 

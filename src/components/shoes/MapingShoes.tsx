@@ -31,7 +31,7 @@ function MapingShoes() {
             // console.log(shoes.data.payload.data)
 
             const allShoes = shoes.data.payload.data
-            shoes && setData(allShoes.slice(prev,next))
+            shoes && setData(allShoes)
             setIsLoading(false)
             if(allShoes.length <= 0) return <p>No hay elementos</p>
 
@@ -44,7 +44,8 @@ function MapingShoes() {
 
     useEffect(() => {
         fetchShoes()
-    }, [prev, next])
+    }, [])
+    
     
 
 
@@ -68,7 +69,7 @@ function MapingShoes() {
             </p>
             :
             
-            data.map((s:any)=> 
+            data.slice(prev, next).map((s:any)=> 
                 <ShoeCard 
                     key={s.id}
                     id={s.id} 

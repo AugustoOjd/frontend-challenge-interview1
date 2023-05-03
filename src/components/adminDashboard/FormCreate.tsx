@@ -29,7 +29,6 @@ function FormCreate() {
             return alert('shoe creado')
         } catch (error) {
             console.log(error)
-            setErrorDatos(true)
             setIsSending(false)
         }
         finally{

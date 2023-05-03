@@ -10,13 +10,11 @@ interface IAuthContext {
     login:  (userName: string, password: PathString)=> void
     logOut: () => void
     status: 'cheking' | 'authenticated' | 'not-authenticated'
-    error: boolean
 }
 
 const authInitialState: AuthState = {
     status: 'cheking',
     user: null,
-    error: false
 }
 
 export const AuthContext = createContext({} as IAuthContext)
@@ -47,7 +45,6 @@ export const AuthProvider = ({children}:any)=>{
         try {
             const log = await apiAuth.post('/', {userName, password})
             const {user, xtoken} = log.data.payload
-            if(!log) throw dispatch({type: 'error', payload: true})
             
             if(!xtoken){
                 dispatch({ type: 'notAuthenticated'})

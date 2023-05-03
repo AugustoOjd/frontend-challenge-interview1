@@ -13,7 +13,7 @@ function LoginCard() {
 
     const [isSending, setIsSending] = useState(false)
     const [errorCredentials, setErrorCredentials] = useState(false)
-    const { login, error } = useContext(AuthContext)
+    const { login } = useContext(AuthContext)
 
     const sendCrendentials = async (userName: string, password: string)=>{
         try {
@@ -27,16 +27,15 @@ function LoginCard() {
             login(userName, password)
 
             
-            setIsSending(false)
+            return setIsSending(false)
         } catch (e) {
             // console.log(error)
-            error
             setErrorCredentials(true)
             setIsSending(false)
-
+            return alert('credenciales incorrectas')
         }
     }
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = data => sendCrendentials(data.userName, data.password)
 
     
