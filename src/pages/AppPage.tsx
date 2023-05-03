@@ -4,7 +4,7 @@ import BodyHome from '../components/main/BodyHome'
 import ShoesContainer from '../components/shoes/ShoesContainer'
 import MainLayout from '../layouts/MainLayout'
 
-function HomePages() {
+function AppPage() {
   return (
     <>
       <MainLayout>
@@ -17,4 +17,4 @@ function HomePages() {
   )
 }
 
-export default HomePages
+export default AppPage

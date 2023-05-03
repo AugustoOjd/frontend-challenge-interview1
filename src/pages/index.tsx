@@ -1,8 +1,9 @@
 import React from 'react'
-import HomePage from './HomePages'
+import AppPage from './AppPage'
+import { AuthProvider } from '../context/AuthContext'
 
 export default function Home() {
   return (
-    <HomePage/>
+      <AppPage/>
   )
 }
