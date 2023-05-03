@@ -1,16 +1,15 @@
 import axios from "axios";
-import Cookies from 'js-cookie'
 
 export const apiShoes = axios.create({
     withCredentials: true,
-    baseURL: 'http://localhost:8080/api/shoe/',
+    baseURL: 'https://storydots-backend-ow15.onrender.com/api/shoe/'
   });
 
 export const apiBrands = axios.create({
-    baseURL: 'http://localhost:8080/api/brand/',
+    baseURL: 'https://storydots-backend-ow15.onrender.com/api/brand/'
   });
 
 export const apiAuth = axios.create({
-    baseURL: 'http://localhost:8080/api/auth/',
+    baseURL: 'https://storydots-backend-ow15.onrender.com/api/auth/'
 })
 
