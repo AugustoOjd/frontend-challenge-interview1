@@ -40,10 +40,8 @@ function FormCreate() {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
     // cambiar la data por los datos enviados
-    const onSubmit: SubmitHandler<Inputs> = data => {
-        createNewShoe(data.name, data.description, data.price, data.thumbnail) 
-        sended && reset({...data})
-    }
+    const onSubmit: SubmitHandler<Inputs> = data => createNewShoe(data.name, data.description, data.price, data.thumbnail).finally(()=> reset({...data}))
+
 
 
   return (

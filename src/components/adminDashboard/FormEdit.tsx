@@ -27,16 +27,17 @@ function FormEdit({id, name, description, price, thumbnail, brandId}:Props) {
 
     const updateById = async (name: string, description: string, price: number, thumbnail: string, brandId: number) =>{
         try {
-            
+            setIsSending(true)
             const update = await apiShoes.put(`/${id}`, {name, description, price, thumbnail, brandId}, {withCredentials: true})
-            if(update) return alert('Shoe update')
+            if(update) setIsSending(false)
+            return alert('Shoe update')
         } catch (error) {
             console.log(error)
             return
         }
     }
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = data => updateById(data.name, data.description, data.price, data.thumbnail, data.brandId)
 
   return (

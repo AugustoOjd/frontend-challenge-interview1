@@ -10,8 +10,7 @@ function TableAdmin() {
     const [data, setData] = useState<any>([])
     const [errorFetch, setErrorFetch] = useState(false)
 
-
-
+    
     // AGREGAR EVENT PREV Y NEXT AL ESTADO
     const [prev, setPrev] = useState(0)
     const [next, setNext] = useState(5)
