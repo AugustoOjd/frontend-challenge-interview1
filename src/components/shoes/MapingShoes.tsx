@@ -33,8 +33,11 @@ function MapingShoes() {
             const allShoes = shoes.data.payload.data
             shoes && setData(allShoes.slice(prev,next))
             setIsLoading(false)
+            if(allShoes.length <= 0) return <p>No hay elementos</p>
+
         } catch (error) {
             setErrorFetch(true)
+            return <p>Error en cargar elementos</p>
         }
 
     }

@@ -21,7 +21,7 @@ function FormCreate() {
     const createNewShoe = async (name: string, description: string, price: number, thumbnail: string)=>{
         try {
             setIsSending(true)
-            const create = await apiShoes.post('/', {name, description, price, thumbnail}, {withCredentials: true})
+            const create = await apiShoes.post('/', {name, description, price, thumbnail})
 
             if(create) setIsSending(false)
             
