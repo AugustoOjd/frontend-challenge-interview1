@@ -16,8 +16,8 @@ function LoginCard() {
     const { login, error } = useContext(AuthContext)
 
     const sendCrendentials = async (userName: string, password: string)=>{
-            setIsSending(true)
         try {
+            setIsSending(true)
             // console.log(userName, password)
             // const log = await apiAuth.post('/', {userName, password})
             // const {user, xtoken} = log.data.payload

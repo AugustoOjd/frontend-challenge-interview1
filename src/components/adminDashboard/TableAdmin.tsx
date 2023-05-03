@@ -44,7 +44,7 @@ function TableAdmin() {
 
     useEffect(() => {
         fetchShoes()
-    }, [prev, next, isLoading, data])
+    }, [prev, next])
 
   return (
     <>

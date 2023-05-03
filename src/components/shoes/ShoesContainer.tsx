@@ -6,7 +6,7 @@ import MapingShoes from './MapingShoes'
 function ShoesContainer() {
   return (
     <>
-    <div className='overflow-y-auto'>
+    <div className='overflow-y-scroll lg:overflow-y-visible'>
       <MapingShoes/>
     </div>
     </>
