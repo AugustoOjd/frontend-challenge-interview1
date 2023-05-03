@@ -16,6 +16,7 @@ function FormCreate() {
 
     const [isSending, setIsSending] = useState(false)
     const [errorDatos, setErrorDatos] = useState(false)
+    const [sended, setSended] = useState(false)
 
     
     const createNewShoe = async (name: string, description: string, price: number, thumbnail: string)=>{
@@ -24,19 +25,25 @@ function FormCreate() {
             const create = await apiShoes.post('/', {name, description, price, thumbnail}, {withCredentials: true})
 
             if(create) setIsSending(false)
-            
+            setSended(true)
             return alert('shoe creado')
         } catch (error) {
             console.log(error)
             setErrorDatos(true)
             setIsSending(false)
         }
+        finally{
+            setSended(false)
+        }
         
     }
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
     // cambiar la data por los datos enviados
-    const onSubmit: SubmitHandler<Inputs> = data => createNewShoe(data.name, data.description, data.price, data.thumbnail)
+    const onSubmit: SubmitHandler<Inputs> = data => {
+        createNewShoe(data.name, data.description, data.price, data.thumbnail) 
+        sended && reset({...data})
+    }
 
 
   return (
@@ -74,13 +81,10 @@ function FormCreate() {
         className='bg-gray-100 border-gray-400 border my-2 px-2 h-10 rounded-md'
         />
     <div className='h-8'>
-        {errors.name 
-            && 
-        <span className='text-red-600 text-lg'>admin name es requerido</span>
-            ||
-        errors.description
+        {
+        errors
             &&
-        <span className='text-red-600 text-lg'>admin password</span>
+        <span className='text-red-600 text-lg'>todos los campos son requeridos</span>
         }
     </div>
 

@@ -86,13 +86,10 @@ function FormEdit({id, name, description, price, thumbnail, brandId}:Props) {
             className='bg-gray-100 border-gray-400 border my-2 px-2 h-10 rounded-md'
             />
         <div className='h-8'>
-            {errors.name 
-                && 
-            <span className='text-red-600 text-lg'>admin name es requerido</span>
-                ||
-            errors.description
+            {
+            errors
                 &&
-            <span className='text-red-600 text-lg'>admin password</span>
+            <span className='text-red-600 text-lg'>todos los campos son requeridos</span>
             }
         </div>
 

@@ -34,9 +34,11 @@ function TableAdmin() {
             // console.log(shoes.data.payload.data)
             const allShoes = shoes.data.payload.data
 
-            shoes && setData(allShoes.slice(prev, next))
+            allShoes && setData(allShoes.slice(prev, next))
             setIsLoading(false)
         } catch (error) {
+            return <p>Error en cargar datos</p>
+        }finally{
             setErrorFetch(true)
         }
 
@@ -44,7 +46,7 @@ function TableAdmin() {
 
     useEffect(() => {
         fetchShoes()
-    }, [prev, next])
+    }, [prev, next, isLoading])
 
   return (
     <>
