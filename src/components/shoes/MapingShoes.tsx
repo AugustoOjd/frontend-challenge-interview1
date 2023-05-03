@@ -9,11 +9,29 @@ function MapingShoes() {
     const [data, setData] = useState<any>([])
     const [errorFetch, setErrorFetch] = useState(false)
 
+        // AGREGAR EVENT PREV Y NEXT AL ESTADO
+        const [prev, setPrev] = useState(0)
+        const [next, setNext] = useState(7)
+    
+        const prevPage = ()=>{
+            if(prev == 0) return
+            setNext( next - 7)
+            setPrev( prev - 7)
+        }
+    
+        const nextPage = ()=>{
+            if(next >= data.length + 1) return
+            setNext( next + 7)
+            setPrev( prev + 7)
+        }
+
     const fetchShoes = async ()=>{
         try {
             const shoes = await apiShoes.get('/')
-            console.log(shoes.data.payload.data)
-            shoes && setData(shoes.data.payload.data)
+            // console.log(shoes.data.payload.data)
+
+            const allShoes = shoes.data.payload.data
+            shoes && setData(allShoes.slice(prev,next))
             setIsLoading(false)
         } catch (error) {
             setErrorFetch(true)
@@ -23,13 +41,22 @@ function MapingShoes() {
 
     useEffect(() => {
         fetchShoes()
-    }, [])
+    }, [prev, next])
     
 
 
 
   return (
     <>
+        <div className='w-full h-10 mb-6 flex justify-center'>
+            <button onClick={()=> prevPage()} className='mr-10 bg-blue-500 p-1 px-2 rounded-md text-white'>
+            {`<-`} Back 
+            </button>
+            <button onClick={()=> nextPage()} className='ml-10 bg-blue-500 p-1 px-2 rounded-md text-white'>
+                Next {`->`}
+            </button>
+        </div>
+        <div  className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-0 md:grid-rows-2 lg:grid-rows-2 gap-4'>
         {
             isLoading
             ?
@@ -37,16 +64,19 @@ function MapingShoes() {
             ...loading
             </p>
             :
+            
             data.map((s:any)=> 
                 <ShoeCard 
                     key={s.id}
                     id={s.id} 
-                    name={s.name} 
+                    name={s.name}
+                    description={s.description} 
                     price={s.price} 
                     img={s.thumbnail} 
-                    
+                    brandId={s.brandId}
                     />)
         }
+        </div>
 
             {/* <ShoeCard/>
             <ShoeCard/>

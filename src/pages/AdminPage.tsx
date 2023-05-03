@@ -14,23 +14,6 @@ function AdminPage() {
     </>
   )
 }
-// export function getServerSideProps(ctx) {
-//   const authSession = getAuthSession(ctx);
-//   if (!authSession) {
-//     return {
-//       redirect: {
-//         destination: "/LoginPage",
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       user: authSession.user,
-//     },
-//   };
-// }
 
 
 export default AdminPage

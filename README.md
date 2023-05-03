@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend challenge storydots
 
-## Getting Started
+Este es el frontend para el challenge de storydots, es un render sencillo de los datos con auth y login con admin
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- React
+- Nextjs
+- Typescript
+- Cookies-js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Iniciar la app
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- npm i
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Secciones de la app
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Home
 
-## Learn More
+Muestra los productos con paginacion
 
-To learn more about Next.js, take a look at the following resources:
+### login
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Es un formulario para admins y puedan ingresar al dashboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Dashboard admin
 
-## Deploy on Vercel
+Se puede ver la lista de productos, editarlos, eliminarnos y tambien cuenta con un formulario para agregar nuevos
+(al formulario se le pueden agregar validaciones extras en el frontend)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Cosas que faltaron agregar
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- La ruta brands esta vacia por cuestiones de tiempo y personales no se pudo incluir (no lo solicitaban en la entrega)
+- Validaciones en la rutas del frontend (el backend tiene las validaciones y auth)
+- Mas estilos para dejar la aplicaciones mas prolija, son estilos sencillos para que se entienda el trabajo

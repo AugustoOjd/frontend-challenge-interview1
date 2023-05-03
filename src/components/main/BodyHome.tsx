@@ -6,9 +6,12 @@ interface Props {
 
 function BodyHome({children}:Props) {
   return (
-    <div className='flex w-full h-100 md:h-128 px-4 sm:px-8 md:px-20 py-8 justify-center bg-indigo-300'>
+    <>
+      <div className='flex w-full h-100 md:h-128 px-4 sm:px-8 md:px-20 py-8 justify-center bg-indigo-300'>
         {children}
     </div>
+    </>
+
   )
 }
 

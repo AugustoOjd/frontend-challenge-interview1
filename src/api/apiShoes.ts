@@ -4,8 +4,10 @@ import Cookies from 'js-cookie'
 export const apiShoes = axios.create({
     baseURL: 'http://localhost:8080/api/shoe/',
     headers: {
+        'Content-Type': 'application/json',
         xtoken: Cookies.get('xtoken')!,
     },
+    withCredentials: true
   });
 
 export const apiBrands = axios.create({
@@ -13,6 +15,7 @@ export const apiBrands = axios.create({
     headers: {
         xtoken: Cookies.get('xtoken')!,
     },
+    withCredentials: true
   });
 
 export const apiAuth = axios.create({
@@ -20,4 +23,6 @@ export const apiAuth = axios.create({
     headers: {
         xtoken: Cookies.get('xtoken')!,
     },
+    withCredentials: true
 })
+
