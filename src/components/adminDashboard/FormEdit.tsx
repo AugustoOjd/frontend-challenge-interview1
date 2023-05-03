@@ -28,7 +28,7 @@ function FormEdit({id, name, description, price, thumbnail, brandId}:Props) {
     const updateById = async (name: string, description: string, price: number, thumbnail: string, brandId: number) =>{
         try {
             
-            const update = await apiShoes.put(`/${id}`, {name, description, price, thumbnail, brandId})
+            const update = await apiShoes.put(`/${id}`, {name, description, price, thumbnail, brandId}, {withCredentials: true})
             if(update) return alert('Shoe update')
         } catch (error) {
             console.log(error)

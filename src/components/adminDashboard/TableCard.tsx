@@ -20,7 +20,7 @@ function TableCard({id, name, description, price, img, brand }:Props) {
         try {
             console.log(id)
 
-            const deleteData = await apiShoes.delete(`/${id}`,)
+            const deleteData = await apiShoes.delete(`/${id}`, {withCredentials: true})
             if(deleteData) alert('Shoe delete')
         } catch (error) {
             console.log(error)
