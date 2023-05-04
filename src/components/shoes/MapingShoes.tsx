@@ -11,18 +11,18 @@ function MapingShoes() {
 
         // AGREGAR EVENT PREV Y NEXT AL ESTADO
         const [prev, setPrev] = useState(0)
-        const [next, setNext] = useState(7)
+        const [next, setNext] = useState(8)
     
         const prevPage = ()=>{
             if(prev == 0) return
-            setNext( next - 7)
-            setPrev( prev - 7)
+            setNext( next - 8)
+            setPrev( prev - 8)
         }
     
         const nextPage = ()=>{
             if(next >= data.length + 1) return
-            setNext( next + 7)
-            setPrev( prev + 7)
+            setNext( next + 8)
+            setPrev( prev + 8)
         }
 
     const fetchShoes = async ()=>{
@@ -53,10 +53,10 @@ function MapingShoes() {
   return (
     <>
         <div className='w-full h-10 mb-6 flex justify-center'>
-            <button onClick={()=> prevPage()} className='mr-10 bg-blue-500 p-1 px-2 rounded-md text-white'>
+            <button onClick={()=> prevPage()} className='mr-10 bg-blue-500 hover:bg-blue-300 p-1 px-2 rounded-md text-white'>
             {`<-`} Back 
             </button>
-            <button onClick={()=> nextPage()} className='ml-10 bg-blue-500 p-1 px-2 rounded-md text-white'>
+            <button onClick={()=> nextPage()} className='ml-10 bg-blue-500 hover:bg-blue-300 p-1 px-2 rounded-md text-white'>
                 Next {`->`}
             </button>
         </div>
