@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const apiShoes = axios.create({
-    withCredentials: true,
     baseURL: 'https://storydots-backend-ow15.onrender.com/api/shoe/'
   });
 
