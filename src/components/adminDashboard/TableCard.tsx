@@ -57,8 +57,8 @@ function TableCard({id, name, description, price, img, brand }:Props) {
         null
     }
         <tbody className='w-full'>
-          <tr>
-            <td>{name}</td>
+          <tr >
+            <td className='py-1'>{name}</td>
                 <td >{description}</td>
             <td>{price}</td>
             
@@ -77,8 +77,8 @@ function TableCard({id, name, description, price, img, brand }:Props) {
                 </button>
             </td>
           </tr>
-          
         </tbody>
+        <div className='py-1'></div>
     </>
   )
 }
