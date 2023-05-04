@@ -17,7 +17,7 @@ function FormCreate() {
     const [isSending, setIsSending] = useState(false)
     const [errorDatos, setErrorDatos] = useState(false)
     const [sended, setSended] = useState(false)
-
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
     
     const createNewShoe = async (name: string, description: string, price: number, thumbnail: string)=>{
         try {
@@ -26,6 +26,7 @@ function FormCreate() {
 
             if(create) setIsSending(false)
             setSended(true)
+            reset()
             return alert('shoe creado')
         } catch (error) {
             // console.log(error)
@@ -37,7 +38,7 @@ function FormCreate() {
         
     }
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
+
     // cambiar la data por los datos enviados
     const onSubmit: SubmitHandler<Inputs> = data => createNewShoe(data.name, data.description, data.price, data.thumbnail)
 
@@ -92,7 +93,7 @@ function FormCreate() {
                 ...creando
             </button>
             :
-            <button onClick={() => reset()} type="submit" className='bg-blue-600 text-white hove:bg-purple-300 h-8 rounded-md mt-7'>
+            <button type="submit" className='bg-blue-600 text-white hove:bg-purple-300 h-8 rounded-md mt-7'>
                 Crear
             </button>
         }

@@ -16,15 +16,15 @@ function LoginCard() {
     const { login } = useContext(AuthContext)
 
     const sendCrendentials = async (userName: string, password: string)=>{
+        setIsSending(true)
         try {
-            setIsSending(true)
             // console.log(userName, password)
             // const log = await apiAuth.post('/', {userName, password})
             // const {user, xtoken} = log.data.payload
             // if(!log) throw new Error("Error credentials");
             
             // Cookies.set('xtoken', xtoken, {expires: 1})
-            login(userName, password)
+            await login(userName, password)
 
             
             return setIsSending(false)
