@@ -22,13 +22,13 @@ function FormCreate() {
     const createNewShoe = async (name: string, description: string, price: number, thumbnail: string)=>{
         try {
             setIsSending(true)
-            const create = await apiShoes.post('/', {name, description, price, thumbnail}, {withCredentials: true})
+            const create = await apiShoes.post('/', {name, description, price, thumbnail})
 
             if(create) setIsSending(false)
             setSended(true)
             return alert('shoe creado')
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             setIsSending(false)
         }
         finally{
@@ -39,7 +39,7 @@ function FormCreate() {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
     // cambiar la data por los datos enviados
-    const onSubmit: SubmitHandler<Inputs> = data => createNewShoe(data.name, data.description, data.price, data.thumbnail).finally(()=> reset({...data}))
+    const onSubmit: SubmitHandler<Inputs> = data => createNewShoe(data.name, data.description, data.price, data.thumbnail)
 
 
 
@@ -92,7 +92,7 @@ function FormCreate() {
                 ...creando
             </button>
             :
-            <button type="submit" className='bg-blue-600 text-white hove:bg-purple-300 h-8 rounded-md mt-7'>
+            <button onClick={() => reset()} type="submit" className='bg-blue-600 text-white hove:bg-purple-300 h-8 rounded-md mt-7'>
                 Crear
             </button>
         }
